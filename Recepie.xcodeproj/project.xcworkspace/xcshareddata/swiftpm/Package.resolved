@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "MNetwork",
+        "repositoryURL": "https://github.com/mzalih/Network",
+        "state": {
+          "branch": null,
+          "revision": "dfe2398ae92bfd037cbd7b738240fd61ca70f73d",
+          "version": "0.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
