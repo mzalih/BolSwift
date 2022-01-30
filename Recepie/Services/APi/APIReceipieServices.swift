@@ -11,14 +11,13 @@ import MNetwork
 
 class APIReceipieServices: ReceipieService {
     
+    let network:MNetWork
     init(session:URLSession) {
-        MNetWork.addCustomSession(session)
+        network = MNetWork(session,baseurl: url.baseurl)
     }
-    
     func fetchList() -> AnyPublisher<[Receipie], Error> {
         
-        MNetWork.request(url.product,
-                          method: .get,
+        network.request(path: url.product,
                           responseType: ListResponse.self)
             .tryMap { data in
                 let items  = data.data?.map({ $0.toReceipie })

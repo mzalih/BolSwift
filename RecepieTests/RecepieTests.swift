@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import Recepie
+import Combine
 
 class RecepieTests: XCTestCase {
 
@@ -18,16 +19,29 @@ class RecepieTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testFetchList() throws{
+        
+        let data = readLocalJson(forName: "RecepieList")
+        let urlString = (url.baseurl + url.product)
+        let session = URLSession
+            .mock(mocks:
+                    URLSession
+                    .mockResponse(
+                        urlString: urlString,
+                        responseData: data))
+        
+        let viewModel =  ReceipieListViewController.ViewModel(service: APIReceipieServices(session: session));
+        let response  = try awaitPublisher( viewModel.loadData())
+        XCTAssertEqual(response, true)
+        XCTAssertEqual(viewModel.loading, false)
+        XCTAssertEqual(viewModel.items.count, 5)
     }
 
 }

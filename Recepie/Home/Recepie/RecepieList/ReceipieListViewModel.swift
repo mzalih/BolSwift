@@ -12,9 +12,7 @@ extension ReceipieListViewController{
     
     class ViewModel: NSObject {
         
-        public private(set) var subsciptions: Set<AnyCancellable> = []
         var service: ReceipieService
-        
         init(service: ReceipieService){
             self.service = service
             super.init()
@@ -22,22 +20,22 @@ extension ReceipieListViewController{
         @objc dynamic var loading = false
         var items = [Receipie]()
         
-        func loadData(){
+        func loadData() -> AnyPublisher<Bool, Error>{
             if(loading){
-                return
+                return Future {
+                    promoise in
+                    promoise(.success(false))
+                }.eraseToAnyPublisher()
             }
             loading = true
-            service.fetchList()
-                .sink { (status) in
-                    print(status)
-                } receiveValue: { (data) in
-                    self.items =  data
-                    self.loading = false
-                }
-                .store(in: &subsciptions)
+            return service.fetchList().tryMap{ data -> Bool in
+                self.items =  data
+                self.loading = false
+                return true
+            }.eraseToAnyPublisher()
         }
         
-        let reuseIdentifier = "UICollectionViewCell"
+        let reuseIdentifier = "ReceipieListCell-"
         // also enter this string as the cell identifier in the storyboard
         
     }

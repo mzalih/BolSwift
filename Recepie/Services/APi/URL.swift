@@ -8,5 +8,6 @@
 import Foundation
 
 struct url{
-    static var product = "https://reqres.in/api/products/"
+    static var baseurl = "https://reqres.in/"
+    static var product = "api/products/"
 }

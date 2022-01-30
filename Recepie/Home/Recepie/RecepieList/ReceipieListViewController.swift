@@ -18,7 +18,9 @@ class ReceipieListViewController: UIViewController, StoryboardInitializable, Pul
     weak var delegate:ReceipieListViewControllerDelegate?
     
     @IBOutlet weak var collectionView:UICollectionView!
+    var cancellableRequest: Cancellable?
     var cancellable: Cancellable?
+    
     init?(viewModel:ViewModel,delegate:ReceipieListViewControllerDelegate, coder: NSCoder){
         self.viewModel = viewModel
         self.delegate = delegate
@@ -36,9 +38,10 @@ class ReceipieListViewController: UIViewController, StoryboardInitializable, Pul
     }
     
     func setupView(){
-
+        collectionView.alwaysBounceVertical = true;
         addRefresh(target: self, scrollView: collectionView, #selector(reload))
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        collectionView.register(ReceipieListCell.self,forCellWithReuseIdentifier:viewModel.reuseIdentifier)
         cancellable = viewModel.publisher(for: \.loading)
             .receive(on: RunLoop.main)
             .sink { (value) in
@@ -49,17 +52,21 @@ class ReceipieListViewController: UIViewController, StoryboardInitializable, Pul
                     self.view.showLoader()
                 }
             }
-       
-        viewModel.loadData()
+        loadData()
+     
     }
     
     @objc func logout(){
         
     }
     
+    func loadData(){
+        cancellableRequest = viewModel.loadData().sink(receiveCompletion: { (status) in }, receiveValue: { (status) in })
+    }
+    
     @objc func reload(_ sender:UIRefreshControl?){
         sender?.endRefreshing()
-        viewModel.loadData()
+        loadData()
     }
     
 }
@@ -77,14 +84,12 @@ extension ReceipieListViewController: UICollectionViewDataSource{
       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
           
           // get a reference to our storyboard cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.viewModel.reuseIdentifier, for: indexPath as IndexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: self.viewModel.reuseIdentifier, for: indexPath as IndexPath) as! ReceipieListCell
           
           let item =  self.viewModel.items[indexPath.item]
           //the same as the index of the desired text within the array.
-         cell.backgroundColor = item.color.asUIColor // make cell more visible in our example project
-          cell.layer.borderColor = UIColor.white.cgColor
-          cell.layer.borderWidth = 5
-        cell.layer.cornerRadius = cell.frame.width/2
+            cell.setItem(item:item)
+        
           return cell
       }
     
