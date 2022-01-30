@@ -39,6 +39,7 @@ class ReceipieListViewController: UIViewController, StoryboardInitializable, Pul
     
     func setupView(){
         collectionView.alwaysBounceVertical = true;
+        collectionView.accessibilityIdentifier = collectionView.theClassName
         addRefresh(target: self, scrollView: collectionView, #selector(reload))
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         collectionView.register(ReceipieListCell.self,forCellWithReuseIdentifier:viewModel.reuseIdentifier)

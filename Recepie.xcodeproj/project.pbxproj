@@ -41,6 +41,7 @@
 		2472110B27A701020084D3B6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472110A27A701020084D3B6 /* UIColor+Extension.swift */; };
 		2472111327A7016D0084D3B6 /* ReceipieListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472111227A7016D0084D3B6 /* ReceipieListCellViewModel.swift */; };
 		2472111827A701F70084D3B6 /* ReceipieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472111727A701F70084D3B6 /* ReceipieDetailsViewModel.swift */; };
+		2472111D27A706FA0084D3B6 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472111C27A706FA0084D3B6 /* NSObject+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		2472110A27A701020084D3B6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2472111227A7016D0084D3B6 /* ReceipieListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceipieListCellViewModel.swift; sourceTree = "<group>"; };
 		2472111727A701F70084D3B6 /* ReceipieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceipieDetailsViewModel.swift; sourceTree = "<group>"; };
+		2472111C27A706FA0084D3B6 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				24293F5827A42156008CE369 /* UIView+Extension.swift */,
 				2472110A27A701020084D3B6 /* UIColor+Extension.swift */,
 				247210E227A6F0F70084D3B6 /* String+Extension.swift */,
+				2472111C27A706FA0084D3B6 /* NSObject+Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				24293E8C27A2CDE4008CE369 /* AuthViewController.swift in Sources */,
 				247210E327A6F0F70084D3B6 /* String+Extension.swift in Sources */,
 				2472111827A701F70084D3B6 /* ReceipieDetailsViewModel.swift in Sources */,
+				2472111D27A706FA0084D3B6 /* NSObject+Extension.swift in Sources */,
 				24293F4127A4080D008CE369 /* CachedRecepieService.swift in Sources */,
 				24293F2427A3C03C008CE369 /* ReceipieListViewController.swift in Sources */,
 				2472110627A700DA0084D3B6 /* Receipie.swift in Sources */,

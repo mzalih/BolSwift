@@ -32,6 +32,7 @@ class ReceipieListCell: UICollectionViewCell {
     }
     
     public func setItem(item:Receipie){
+        self.accessibilityIdentifier = "\(theClassName).\(item.id)"
         self.viewModel = ViewModel(receipie:item)
         self.label.text = viewModel?.title
         self.image.backgroundColor = viewModel?.color.asUIColor

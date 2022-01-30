@@ -30,6 +30,16 @@ class RecepieUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func testLoadedItemList() throws {
+        let app = XCUIApplication()
+        app.launch()
+        //  yes app traced the collection view
+        XCTAssert(app.collectionViews["UICollectionView"].waitForExistence(timeout: 1.5))
+        let collectionView = app.collectionViews["UICollectionView"]
+        XCTAssert(collectionView.cells["Recepie.ReceipieListCell.1"].waitForExistence(timeout: 1.5))
+        XCTAssertTrue(collectionView.cells.count == 6, "Loaded Cells")
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
