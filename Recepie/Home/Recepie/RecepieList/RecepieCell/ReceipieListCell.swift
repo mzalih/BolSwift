@@ -34,7 +34,7 @@ class ReceipieListCell: UICollectionViewCell {
     public func setItem(item:Receipie){
         self.viewModel = ViewModel(receipie:item)
         self.label.text = viewModel?.title
-        self.image.backgroundColor = viewModel?.color
+        self.image.backgroundColor = viewModel?.color.asUIColor
     }
     
     override func prepareForReuse() {
@@ -69,20 +69,5 @@ class ReceipieListCell: UICollectionViewCell {
         image.layer.borderWidth = 1
         image.layer.cornerRadius = imageWidth/2
 
-    }
-}
-
-extension ReceipieListCell{
-    class ViewModel{
-        private let receipie:Receipie
-        var title: String {
-            receipie.value
-        }
-        var color: UIColor{
-            receipie.color.asUIColor
-        }
-        init(receipie:Receipie) {
-            self.receipie = receipie
-        }
     }
 }

@@ -35,6 +35,12 @@
 		247210DB27A6ED5F0084D3B6 /* XCTest_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247210DA27A6ED5F0084D3B6 /* XCTest_Extension.swift */; };
 		247210E327A6F0F70084D3B6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247210E227A6F0F70084D3B6 /* String+Extension.swift */; };
 		247210E927A6F63A0084D3B6 /* RecepieList.json in Resources */ = {isa = PBXBuildFile; fileRef = 247210E827A6F63A0084D3B6 /* RecepieList.json */; };
+		247210F527A700580084D3B6 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247210F427A700580084D3B6 /* AuthViewModel.swift */; };
+		247210FB27A700960084D3B6 /* Authstate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247210FA27A700960084D3B6 /* Authstate.swift */; };
+		2472110627A700DA0084D3B6 /* Receipie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472110527A700DA0084D3B6 /* Receipie.swift */; };
+		2472110B27A701020084D3B6 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472110A27A701020084D3B6 /* UIColor+Extension.swift */; };
+		2472111327A7016D0084D3B6 /* ReceipieListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472111227A7016D0084D3B6 /* ReceipieListCellViewModel.swift */; };
+		2472111827A701F70084D3B6 /* ReceipieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472111727A701F70084D3B6 /* ReceipieDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +94,12 @@
 		247210DA27A6ED5F0084D3B6 /* XCTest_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTest_Extension.swift; sourceTree = "<group>"; };
 		247210E227A6F0F70084D3B6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		247210E827A6F63A0084D3B6 /* RecepieList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecepieList.json; sourceTree = "<group>"; };
+		247210F427A700580084D3B6 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		247210FA27A700960084D3B6 /* Authstate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authstate.swift; sourceTree = "<group>"; };
+		2472110527A700DA0084D3B6 /* Receipie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipie.swift; sourceTree = "<group>"; };
+		2472110A27A701020084D3B6 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		2472111227A7016D0084D3B6 /* ReceipieListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceipieListCellViewModel.swift; sourceTree = "<group>"; };
+		2472111727A701F70084D3B6 /* ReceipieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceipieDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,12 +151,13 @@
 		24293E8627A2CDE4008CE369 /* Recepie */ = {
 			isa = PBXGroup;
 			children = (
+				247210F927A700850084D3B6 /* Model */,
 				24293F3D27A407E0008CE369 /* Services */,
 				24293F1F27A3BFBC008CE369 /* Home */,
 				24293F1127A2D2D3008CE369 /* Config */,
 				24293E8727A2CDE4008CE369 /* AppDelegate.swift */,
 				24293E8927A2CDE4008CE369 /* SceneDelegate.swift */,
-				24293E8B27A2CDE4008CE369 /* AuthViewController.swift */,
+				247210F027A7003E0084D3B6 /* AuthViewController */,
 				24293E8D27A2CDE4008CE369 /* Main.storyboard */,
 				24293E9327A2CDE6008CE369 /* Assets.xcassets */,
 				24293E9527A2CDE6008CE369 /* LaunchScreen.storyboard */,
@@ -219,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				24293F3827A3F5A8008CE369 /* ReceipieDetailsViewController.swift */,
+				2472111727A701F70084D3B6 /* ReceipieDetailsViewModel.swift */,
 			);
 			path = ReceipieDetails;
 			sourceTree = "<group>";
@@ -254,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				24293F5827A42156008CE369 /* UIView+Extension.swift */,
+				2472110A27A701020084D3B6 /* UIColor+Extension.swift */,
 				247210E227A6F0F70084D3B6 /* String+Extension.swift */,
 			);
 			path = Extentions;
@@ -263,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				24597C1727A4FEE800CA7B0D /* ReceipieListCell.swift */,
+				2472111227A7016D0084D3B6 /* ReceipieListCellViewModel.swift */,
 			);
 			path = RecepieCell;
 			sourceTree = "<group>";
@@ -273,6 +289,24 @@
 				247210E827A6F63A0084D3B6 /* RecepieList.json */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		247210F027A7003E0084D3B6 /* AuthViewController */ = {
+			isa = PBXGroup;
+			children = (
+				24293E8B27A2CDE4008CE369 /* AuthViewController.swift */,
+				247210F427A700580084D3B6 /* AuthViewModel.swift */,
+			);
+			path = AuthViewController;
+			sourceTree = "<group>";
+		};
+		247210F927A700850084D3B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				247210FA27A700960084D3B6 /* Authstate.swift */,
+				2472110527A700DA0084D3B6 /* Receipie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,12 +447,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2472111327A7016D0084D3B6 /* ReceipieListCellViewModel.swift in Sources */,
+				247210F527A700580084D3B6 /* AuthViewModel.swift in Sources */,
 				24597C1827A4FEE800CA7B0D /* ReceipieListCell.swift in Sources */,
 				24293F6C27A42680008CE369 /* ReceipieListViewModel.swift in Sources */,
 				24293E8C27A2CDE4008CE369 /* AuthViewController.swift in Sources */,
 				247210E327A6F0F70084D3B6 /* String+Extension.swift in Sources */,
+				2472111827A701F70084D3B6 /* ReceipieDetailsViewModel.swift in Sources */,
 				24293F4127A4080D008CE369 /* CachedRecepieService.swift in Sources */,
 				24293F2427A3C03C008CE369 /* ReceipieListViewController.swift in Sources */,
+				2472110627A700DA0084D3B6 /* Receipie.swift in Sources */,
 				24293F5327A41B2A008CE369 /* ReceipieService.swift in Sources */,
 				24597C7B27A53E6900CA7B0D /* MockURLSession.swift in Sources */,
 				24293F3927A3F5A8008CE369 /* ReceipieDetailsViewController.swift in Sources */,
@@ -428,6 +466,8 @@
 				24293F1827A3B0AD008CE369 /* Coordinator.swift in Sources */,
 				24293E9227A2CDE4008CE369 /* Recepie.xcdatamodeld in Sources */,
 				24293E8827A2CDE4008CE369 /* AppDelegate.swift in Sources */,
+				2472110B27A701020084D3B6 /* UIColor+Extension.swift in Sources */,
+				247210FB27A700960084D3B6 /* Authstate.swift in Sources */,
 				24293F5927A42156008CE369 /* UIView+Extension.swift in Sources */,
 				24293F3127A3C0F8008CE369 /* PullToReloadable.swift in Sources */,
 				24293E8A27A2CDE4008CE369 /* SceneDelegate.swift in Sources */,

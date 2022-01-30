@@ -6,13 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 protocol AuthViewControllerDelegate: AnyObject {
     func onauthStatusChange(status:AuthState)
-}
-enum AuthState{
-    case authenticatedUser
-    case unknownUser
 }
 
 class AuthViewController: UIViewController, StoryboardInitializable {
@@ -20,7 +17,8 @@ class AuthViewController: UIViewController, StoryboardInitializable {
     static var storyboardName: String = "Main"
     weak var delegate:AuthViewControllerDelegate?
     let viewModel:ViewModel
-    
+    var cancellableRequest: Cancellable?
+   
     init?(viewModel:ViewModel, delegate:AuthViewControllerDelegate, coder: NSCoder){
         self.viewModel = viewModel
         self.delegate = delegate
@@ -33,22 +31,18 @@ class AuthViewController: UIViewController, StoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupView()
+        loadData()
     }
     
-    func setupView(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.delegate?.onauthStatusChange(status: .authenticatedUser);
-        }
+    func loadData(){
+        
+        cancellableRequest =
+            viewModel.isUserLoggedIn()
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { (status) in }, receiveValue: { (response) in
+                self.delegate?.onauthStatusChange(status: response);
+            })
     }
 
 
-}
-extension AuthViewController{
-    
-    class ViewModel {
-        
-        
-        
-    }
 }
