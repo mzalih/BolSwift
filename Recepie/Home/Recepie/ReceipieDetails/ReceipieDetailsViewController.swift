@@ -14,6 +14,7 @@ class ReceipieDetailsViewController: UIViewController {
     var label: UILabel = {
        let label = UILabel()
         label.textAlignment = .center
+        label.accessibilityIdentifier = label.theClassName
         return label
     }()
     

@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Recepie
 
 class RecepieUITests: XCTestCase {
 
@@ -39,6 +40,18 @@ class RecepieUITests: XCTestCase {
         let collectionView = app.collectionViews["UICollectionView"]
         XCTAssert(collectionView.cells["Recepie.ReceipieListCell.1"].waitForExistence(timeout: 1.5))
         XCTAssertTrue(collectionView.cells.count == 6, "Loaded Cells")
+    }
+    
+    func testLoadedItemDetail() throws {
+        let app = XCUIApplication()
+        app.launch()
+        //  yes app traced the collection view
+        let _ = app.collectionViews["UICollectionView"].waitForExistence(timeout: 1.5)
+        let collectionView = app.collectionViews["UICollectionView"]
+        let _ = collectionView.cells["Recepie.ReceipieListCell.1"].waitForExistence(timeout: 1.5)
+        collectionView.cells.firstMatch.tap()
+        XCTAssert(app.staticTexts["UILabel"].waitForExistence(timeout: 1.5))
+        XCTAssertEqual(app.staticTexts["UILabel"].label,"cerulean")
     }
 
     func testLaunchPerformance() throws {
