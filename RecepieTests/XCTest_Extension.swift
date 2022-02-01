@@ -56,34 +56,5 @@ extension XCTestCase {
         return try unwrappedResult.get()
     }
     
-    func bundleURL() -> URL {
-        let bundle = Bundle(for: type(of: self))
-        return bundle.bundleURL
-    }
-    
-    func loadStub(name: String, extension: String = "json") -> URL? {
-        let bundle = Bundle(for: type(of: self))
-
-        let url = bundle.url(forResource: name, withExtension: `extension`)
-
-        return url
-    }
-    
-    func loadStubString(name: String, extension: String) -> String? {
-        return loadStub(name: name, extension: `extension`)?.absoluteString
-    }
-
-    
-     func readLocalJson(forName name: String) -> Data? {
-        do {
-            if let bundlePath = loadStub(name: name){
-                let jsonData = try Data(contentsOf:bundlePath )
-                return jsonData
-            }
-        } catch {
-            print(error)
-        }
-        
-        return nil
-    }
+  
 }

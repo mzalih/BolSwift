@@ -34,17 +34,25 @@ class RecepieUITests: XCTestCase {
     
     func testLoadedItemList() throws {
         let app = XCUIApplication()
+        app.launchEnvironment["IS_UI_TESTING"] = "1"
+        app.launchEnvironment["USE_LOCAL_TEST_DATA"] = "1"
+        app.launchEnvironment["RESPONSE." + "RecepieList"] = loadStubString(name: "RecepieList")
+        
         app.launch()
         //  yes app traced the collection view
         XCTAssert(app.collectionViews["UICollectionView"].waitForExistence(timeout: 1.5))
         let collectionView = app.collectionViews["UICollectionView"]
         XCTAssert(collectionView.cells["Recepie.ReceipieListCell.1"].waitForExistence(timeout: 1.5))
-        XCTAssertTrue(collectionView.cells.count == 6, "Loaded Cells")
+        XCTAssertTrue(collectionView.cells.count == 5, "Loaded Cells")
     }
     
     func testLoadedItemDetail() throws {
         let app = XCUIApplication()
+        app.launchEnvironment["IS_UI_TESTING"] = "1"
+        app.launchEnvironment["USE_LOCAL_TEST_DATA"] = "1"
+        app.launchEnvironment["RESPONSE.RecepieList"] = loadStubString(name: "RecepieList")
         app.launch()
+        
         //  yes app traced the collection view
         let _ = app.collectionViews["UICollectionView"].waitForExistence(timeout: 1.5)
         let collectionView = app.collectionViews["UICollectionView"]
@@ -61,5 +69,16 @@ class RecepieUITests: XCTestCase {
                 XCUIApplication().launch()
             }
         }
+    }
+    func loadStub(name: String, extension: String = "json") -> URL? {
+        let bundle = Bundle(for: type(of: self))
+
+        let url = bundle.url(forResource: name, withExtension: `extension`)
+
+        return url
+    }
+    
+    func loadStubString(name: String, extension: String = "json") -> String? {
+        return loadStub(name: name, extension: `extension`)?.absoluteString
     }
 }

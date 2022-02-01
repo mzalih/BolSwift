@@ -8,6 +8,7 @@
 import XCTest
 @testable import Recepie
 import Combine
+@testable import MNetwork
 
 class RecepieTests: XCTestCase {
 
@@ -31,11 +32,11 @@ class RecepieTests: XCTestCase {
         let data = readLocalJson(forName: "RecepieList")
         let urlString = (url.baseurl + url.product)
         let session = URLSession
-            .mock(mocks:
+            .mock(mocks:[urlString.toUrl :
                     URLSession
                     .mockResponse(
                         urlString: urlString,
-                        responseData: data))
+                        responseData: data)])
         
         let viewModel =  ReceipieListViewController.ViewModel(service: APIReceipieServices(session: session));
         let response  = try awaitPublisher( viewModel.loadData())
@@ -44,4 +45,7 @@ class RecepieTests: XCTestCase {
         XCTAssertEqual(viewModel.items.count, 5)
     }
 
+}
+extension XCTestCase: AddLocalTestFile{
+    
 }

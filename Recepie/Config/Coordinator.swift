@@ -100,7 +100,7 @@ class HomeCoordinator: Coordinator {
     func start() {
         let launchViewController =
             ReceipieListViewController.initFromStoryboard(creator: { (coder) -> ReceipieListViewController? in
-                return ReceipieListViewController(viewModel: ReceipieListViewController.ViewModel(service: APIReceipieServices(session: .shared)), delegate: self, coder: coder)
+                return ReceipieListViewController(viewModel: ReceipieListViewController.ViewModel(service: APIReceipieServices(session: .instance(APIReceipieServices.self))), delegate: self, coder: coder)
             })
         rootViewController.setNavigationBarHidden(false, animated: true)
         rootViewController.setViewControllers([launchViewController],animated: true)

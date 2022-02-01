@@ -34,6 +34,12 @@ class APIReceipieServices: ReceipieService {
         }.eraseToAnyPublisher()
     }
 }
+
+extension APIReceipieServices: TestableAPi {
+    static func mocks() -> [TestPaths] {
+        [TestPaths(url: url.baseurl+url.product,file: "RecepieList")]
+    }   
+}
 // MARK: - ListResponse
 struct ListResponse: Codable {
     let page, perPage, total, totalPages: Int?
@@ -90,3 +96,4 @@ extension UIColor {
         )
     }
 }
+
