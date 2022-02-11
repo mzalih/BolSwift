@@ -23,6 +23,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.window = window
                 window.makeKeyAndVisible()
                 appCoordinator.start()
+        open(urlContext: connectionOptions.urlContexts.first)
+       
+    }
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        open(urlContext: URLContexts.first)
+    }
+    
+    
+    func open(urlContext:UIOpenURLContext?){
+        // Determine who sent the URL.
+        if let urlContext = urlContext{
+            let sendingAppID = urlContext.options.sourceApplication
+            let url = urlContext.url
+            print("source application = \(sendingAppID ?? "Unknown")")
+            print("url = \(url)")
+            
+            appCoordinator.open(deepLink: PageDeepLink(arguments: url.queryParameters, screenID: "Product"))
+
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -55,7 +74,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
 }
 

@@ -43,6 +43,12 @@
 		2472111D27A706FA0084D3B6 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472111C27A706FA0084D3B6 /* NSObject+Extension.swift */; };
 		2472112927A93A9D0084D3B6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472112827A93A9D0084D3B6 /* App.swift */; };
 		2472114127A95E900084D3B6 /* RecepieList.json in Resources */ = {isa = PBXBuildFile; fileRef = 247210E827A6F63A0084D3B6 /* RecepieList.json */; };
+		2472115627AD50980084D3B6 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2472115527AD50970084D3B6 /* DeepLink.swift */; };
+		248801CD27B63DB20080063A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248801CC27B63DB20080063A /* AppCoordinator.swift */; };
+		248801D527B63E080080063A /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248801D427B63E080080063A /* AuthCoordinator.swift */; };
+		248801DB27B63E430080063A /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248801DA27B63E430080063A /* HomeCoordinator.swift */; };
+		248801E327B640C30080063A /* ChildCoordinatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248801E227B640C30080063A /* ChildCoordinatorManager.swift */; };
+		24DE318727AD6308000D8C2A /* DeepLinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DE318627AD6308000D8C2A /* DeepLinkUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +109,12 @@
 		2472111727A701F70084D3B6 /* ReceipieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceipieDetailsViewModel.swift; sourceTree = "<group>"; };
 		2472111C27A706FA0084D3B6 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		2472112827A93A9D0084D3B6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		2472115527AD50970084D3B6 /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
+		248801CC27B63DB20080063A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		248801D427B63E080080063A /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		248801DA27B63E430080063A /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		248801E227B640C30080063A /* ChildCoordinatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCoordinatorManager.swift; sourceTree = "<group>"; };
+		24DE318627AD6308000D8C2A /* DeepLinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +166,7 @@
 		24293E8627A2CDE4008CE369 /* Recepie */ = {
 			isa = PBXGroup;
 			children = (
+				2472115427AD50830084D3B6 /* DeepLink */,
 				2472112627A93A660084D3B6 /* Features */,
 				247210F927A700850084D3B6 /* Model */,
 				24293F3D27A407E0008CE369 /* Services */,
@@ -184,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				24293EAC27A2CDE7008CE369 /* RecepieUITests.swift */,
+				24DE318627AD6308000D8C2A /* DeepLinkUITests.swift */,
 				24293EAE27A2CDE7008CE369 /* Info.plist */,
 			);
 			path = RecepieUITests;
@@ -192,11 +206,11 @@
 		24293F1127A2D2D3008CE369 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				248801CB27B63D900080063A /* Coocrdinator */,
 				2472112727A93A8C0084D3B6 /* Basic */,
 				24293F5727A41F07008CE369 /* Extentions */,
 				24293F1227A2D2F4008CE369 /* StoryboardInitializable.swift */,
 				24293F6627A423C9008CE369 /* Toast.swift */,
-				24293F1727A3B0AD008CE369 /* Coordinator.swift */,
 				24293F3027A3C0F8008CE369 /* PullToReloadable.swift */,
 			);
 			path = Config;
@@ -327,6 +341,26 @@
 				2472112827A93A9D0084D3B6 /* App.swift */,
 			);
 			path = Basic;
+			sourceTree = "<group>";
+		};
+		2472115427AD50830084D3B6 /* DeepLink */ = {
+			isa = PBXGroup;
+			children = (
+				2472115527AD50970084D3B6 /* DeepLink.swift */,
+			);
+			path = DeepLink;
+			sourceTree = "<group>";
+		};
+		248801CB27B63D900080063A /* Coocrdinator */ = {
+			isa = PBXGroup;
+			children = (
+				24293F1727A3B0AD008CE369 /* Coordinator.swift */,
+				248801E227B640C30080063A /* ChildCoordinatorManager.swift */,
+				248801CC27B63DB20080063A /* AppCoordinator.swift */,
+				248801DA27B63E430080063A /* HomeCoordinator.swift */,
+				248801D427B63E080080063A /* AuthCoordinator.swift */,
+			);
+			path = Coocrdinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2472111327A7016D0084D3B6 /* ReceipieListCellViewModel.swift in Sources */,
+				248801E327B640C30080063A /* ChildCoordinatorManager.swift in Sources */,
 				247210F527A700580084D3B6 /* AuthViewModel.swift in Sources */,
 				24597C1827A4FEE800CA7B0D /* ReceipieListCell.swift in Sources */,
 				24293F6C27A42680008CE369 /* ReceipieListViewModel.swift in Sources */,
@@ -481,12 +516,16 @@
 				24293F2427A3C03C008CE369 /* ReceipieListViewController.swift in Sources */,
 				2472110627A700DA0084D3B6 /* Receipie.swift in Sources */,
 				24293F5327A41B2A008CE369 /* ReceipieService.swift in Sources */,
+				248801D527B63E080080063A /* AuthCoordinator.swift in Sources */,
 				24293F3927A3F5A8008CE369 /* ReceipieDetailsViewController.swift in Sources */,
 				24293F7A27A45246008CE369 /* APIReceipieServices.swift in Sources */,
+				2472115627AD50980084D3B6 /* DeepLink.swift in Sources */,
+				248801DB27B63E430080063A /* HomeCoordinator.swift in Sources */,
 				24293F8227A462BA008CE369 /* URL.swift in Sources */,
 				24293F1327A2D2F4008CE369 /* StoryboardInitializable.swift in Sources */,
 				24293F1827A3B0AD008CE369 /* Coordinator.swift in Sources */,
 				24293E9227A2CDE4008CE369 /* Recepie.xcdatamodeld in Sources */,
+				248801CD27B63DB20080063A /* AppCoordinator.swift in Sources */,
 				24293E8827A2CDE4008CE369 /* AppDelegate.swift in Sources */,
 				2472110B27A701020084D3B6 /* UIColor+Extension.swift in Sources */,
 				247210FB27A700960084D3B6 /* Authstate.swift in Sources */,
@@ -511,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24293EAD27A2CDE7008CE369 /* RecepieUITests.swift in Sources */,
+				24DE318727AD6308000D8C2A /* DeepLinkUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

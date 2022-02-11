@@ -70,6 +70,9 @@ class RecepieUITests: XCTestCase {
             }
         }
     }
+}
+
+extension XCTestCase{
     func loadStub(name: String, extension: String = "json") -> URL? {
         let bundle = Bundle(for: type(of: self))
 
